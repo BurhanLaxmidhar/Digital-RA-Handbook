@@ -1,0 +1,227 @@
+:root {
+  --purdue-black: #000000;
+  --purdue-gold: #B19656;
+  --purdue-white: #FFFFFF;
+  --purdue-gray: #F4F4F4;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--purdue-gold);
+  color: var(--purdue-black);
+
+  /* Purdue logo watermark background */
+  background-image: url('assets/purdue-logo.png');
+  background-repeat: no-repeat;
+  background-position: center 160px;
+  background-size: 300px auto;
+}
+
+/* Overlay to add subtlety to the logo watermark */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--purdue-gold);
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  background: url('assets/purdue-logo.png') no-repeat center 180px;
+  background-size: 320px auto;
+  opacity: 0.06;        /* Faint watermark */
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Navbar */
+nav {
+  background: var(--purdue-black);
+  z-index: 2;
+  position: relative;
+}
+nav ul {
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  margin: 0;
+}
+nav ul li a {
+  display: block;
+  padding: 1em 1.5em;
+  color: var(--purdue-gold);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+nav ul li a:hover,
+nav ul li a:focus {
+  background: var(--purdue-gold);
+  color: var(--purdue-black);
+}
+
+/* Header, Main, Footer */
+header, main, footer {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 1.5em;
+  background: var(--purdue-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ccc;
+  z-index: 1;
+  position: relative;
+}
+header h1, header h2 {
+  color: var(--purdue-black);
+}
+header p {
+  color: var(--purdue-gold);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--purdue-gold);
+  background: var(--purdue-black);
+  box-shadow: none;
+  border-radius: 0 0 8px 8px;
+  padding: 1em;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  background: var(--purdue-white);
+}
+th, td {
+  border: 1px solid var(--purdue-gold);
+  padding: 0.75em 1em;
+  text-align: left;
+}
+th {
+  background: var(--purdue-gold);
+  color: var(--purdue-black);
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background: var(--purdue-gray);
+}
+tr:hover {
+  background: #f6ebcf;
+  color: var(--purdue-black);
+}
+
+/* Button Group for Handbook Navigation */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 1em 0;
+  justify-content: center;
+}
+a.button, button {
+  background: var(--purdue-gold);
+  color: var(--purdue-black);
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  min-width: 180px;
+  text-align: center;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  z-index: 1;
+  position: relative;
+}
+a.button:hover, button:hover,
+a.button:focus, button:focus {
+  background: var(--purdue-black);
+  color: var(--purdue-gold);
+  border: 1px solid var(--purdue-gold);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  header, main, footer {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+  a.button, button {
+    min-width: 140px;
+    width: 90%;
+    font-size: 1em;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li a {
+    padding: 1em 1em;
+    text-align: center;
+  }
+  header, main, footer {
+    margin: 1em 0.5em;
+    padding: 1em;
+  }
+  table, th, td {
+    font-size: 0.95em;
+  }
+}
+
+
+main section {
+  margin-bottom: 2.5em;   /* Adds space between sections */
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  font-size: 1.4em;
+}
+
+ul, ol {
+  margin-bottom: 1.5em;   /* Space after lists */
+  margin-top: 0.3em;      /* Small space above lists */
+  padding-left: 2em;      /* Standard indent */
+}
+
+ul li, ol li {
+  margin-bottom: 0.6em;   /* Space between list items */
+}
+
+@media (max-width: 700px) {
+  main section {
+    margin-bottom: 1.3em;
+  }
+  ul, ol {
+    margin-bottom: 0.8em;
+    padding-left: 1.3em;
+  }
+  ul li, ol li {
+    margin-bottom: 0.4em;
+  }
+}
+
